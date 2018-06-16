@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Illhave</string>
+    <string name="heslo">Heslo: </string>
+    <string name="stol">Stôl: </string>
+    <string name="odoslatObjednavkuButtonText">Odoslať objednávku</string>
+    <string name="title_activity_jedalny_listok">JedalnyListokActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="cena_spolu_default">0</string>
+    <string name="ks">ks</string>
+    <string name="pocet_editText_default">1</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_velky_listok">VelkyListokActivity</string>
+    <string name="jedalnyListok">Jedálný lístok</string>
+    <string name="moje_objednavky">Moje objednávky</string>
+    <string name="jedalnyListokTabbed">Jedalný lístok tabbed</string>
+    <string name="mojeObjednavky">Moje objednávky</string>
+</resources>

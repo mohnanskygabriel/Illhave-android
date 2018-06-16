@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/jedalny_listok_produkt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/nazovProduktuTextView"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_weight="4"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+    <TextView
+        android:id="@+id/cenaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+    <EditText
+        android:id="@+id/pocetEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="@string/pocet_editText_default" />
+
+    <!--<NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="3"
+        android:gravity="center" />-->
+
+    <TextView
+        android:id="@+id/ksTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/ks"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+    <TextView
+        android:id="@+id/cenaSpoluTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="@string/cena_spolu_default"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center" />
+
+</LinearLayout>
