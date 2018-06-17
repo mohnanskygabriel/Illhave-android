@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/jedalny_listok_header"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal">
 
     <TextView
-        android:id="@+id/objednavka_lokalna_total_textView"
+        android:id="@+id/row_my_order_total_text_view"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
@@ -15,12 +14,12 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintEnd_toStartOf="@+id/row_my_order_guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/objednavka_lokalna_cas_textView"
+        android:id="@+id/row_my_order_date_text_view"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
@@ -29,17 +28,17 @@
         android:gravity="center_vertical|center"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/row_my_order_guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/objednavka_lokalna_apiId_textView"
+        android:id="@+id/row_my_order_api_id_text_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="invisible" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/row_my_order_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"

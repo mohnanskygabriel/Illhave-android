@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,7 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -35,25 +35,25 @@ import sk.upjs.sk.illhave.entity.Product;
 import sk.upjs.sk.illhave.entity.RestaurantTable;
 import sk.upjs.sk.illhave.localdb.IllHaveContract;
 
-public class PotvrdenieObjednavkyActivity extends AppCompatActivity {
+public class SendOrderActivity extends AppCompatActivity {
 
-    private TextView celkovaCenaTextView = null;
+    private TextView totalPriceTextView = null;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_potvrdenie_objednavky);
-        ActivityCompat.requestPermissions(PotvrdenieObjednavkyActivity.this,
+        setContentView(R.layout.activity_send_order);
+        ActivityCompat.requestPermissions(SendOrderActivity.this,
                 new String[]{Manifest.permission.INTERNET},
                 1);
         final Spinner spinner = findViewById(R.id.tablesSpinner);
         initializeRestaurantTables(spinner);
 
-        final TextView passwordView = findViewById(R.id.tablePasswordInput);
+        final TextView passwordView = findViewById(R.id.table_password_edit_text);
 
-        Button button = findViewById(R.id.sendOrder);
-        celkovaCenaTextView = findViewById(R.id.celkovaCenaTextView);
+        Button button = findViewById(R.id.send_order_button);
+        totalPriceTextView = findViewById(R.id.total_price_text_view);
         val extras = getIntent().getExtras();
         ArrayList<Integer> productIdIntegerList = null;
         ArrayList<Integer> quantitiesList = null;
@@ -61,61 +61,58 @@ public class PotvrdenieObjednavkyActivity extends AppCompatActivity {
             productIdIntegerList = extras.getIntegerArrayList("productIds");
             quantitiesList = extras.getIntegerArrayList("quantities");
         }
+
         val productIdIntegerListFinal = (ArrayList<Integer>) productIdIntegerList.clone();
-        double celkovaCena = 0.0;
+        Double celkovaCena = 0.0;
         for (int i = 0; i < productIdIntegerListFinal.size(); i++) {
             celkovaCena += (quantitiesList.get(i) * AllProducts.allProducts.get(productIdIntegerListFinal.get(i) - 1).price());
         }
-        DecimalFormat df = new DecimalFormat("#.##");
-        val finalCelkovaCena = df.format(celkovaCena);
-        celkovaCenaTextView.setText("Cena objednávky: " + finalCelkovaCena + "€");
+
+        val finalTotalPrice = String.valueOf(
+                new BigDecimal(celkovaCena).setScale(2, RoundingMode.HALF_UP));
+        totalPriceTextView.setText("Cena objednávky: " + finalTotalPrice + "€");
         val finalQuantitesList = (ArrayList<Integer>) quantitiesList.clone();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("Click", "Clicked");
                 val restaurantTableId = spinner.getSelectedItemId() + 1;
                 val restaurantTable = spinner.getSelectedItem().toString();
                 val password = String.valueOf(passwordView.getText());
-                Log.e("TableId: ", String.valueOf(restaurantTableId));
-                Log.e("Table: ", restaurantTable);
-                Log.e("Password: ", password);
 
                 boolean passcheck = checkPassword(restaurantTable, password);
                 if (passcheck) {
 
                     val productIdLongList = new LinkedList<Long>();
                     if (extras != null) {
-                        if (productIdIntegerListFinal != null) {
-                            for (Integer integer : productIdIntegerListFinal) {
-                                productIdLongList.add(Long.valueOf(integer));
-                            }
+                        for (Integer integer : productIdIntegerListFinal) {
+                            productIdLongList.add(Long.valueOf(integer));
                         }
                     }
-                    Log.e("PasswordCheck: ", "PASS_OK");
                     val order = createOrder(productIdLongList, finalQuantitesList, restaurantTableId, restaurantTable, String.valueOf(password));
                     val createdOrder = sendOrder(order);
                     val fullOrder = getOrderById(createdOrder.id());
-                    Log.e("Saved order:", fullOrder.toString());
-                    saveOrderToLocalDB(fullOrder.id(), fullOrder.createdDate(), Double.parseDouble(finalCelkovaCena));
+                    saveOrderToLocalDB(fullOrder.id(), fullOrder.createdDate(), Double.parseDouble(finalTotalPrice));
                 } else {
-                    Log.e("PasswordCheck: ", "PASS_NOT_OK");
+                    Toast.makeText(
+                            SendOrderActivity.this,
+                            "Objednávka nebola odoslaná, zadali ste zlé heslo",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
 
-    private void saveOrderToLocalDB(Long idFromExternalDB, Date orderCreatedDate, double celkovaCena) {
+    private void saveOrderToLocalDB(Long idFromExternalDB, Date orderCreatedDate, double totalPrice) {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(IllHaveContract.Order.API_ID, idFromExternalDB);
         contentValues.put(IllHaveContract.Order.CREATED_DATE, orderCreatedDate.toString());
-        contentValues.put(IllHaveContract.Order.TOTAL, celkovaCena);
+        contentValues.put(IllHaveContract.Order.TOTAL, totalPrice);
         AsyncQueryHandler queryHandler = new AsyncQueryHandler(getContentResolver()) {
             @Override
             protected void onInsertComplete(int token, Object cookie, Uri uri) {
                 Toast.makeText(
-                        PotvrdenieObjednavkyActivity.this,
+                        SendOrderActivity.this,
                         "Objednávka odoslaná a uložená do lokálného úložiska",
                         Toast.LENGTH_SHORT).show();
             }
@@ -142,7 +139,8 @@ public class PotvrdenieObjednavkyActivity extends AppCompatActivity {
         for (int i = 0; i < productIdIntegerListFinal.size(); i++) {
             celkovaCena += (quantitiesList.get(i) * AllProducts.allProducts.get(productIdIntegerListFinal.get(i) - 1).price());
         }
-        celkovaCenaTextView.setText("Cena objednávky: " + celkovaCena + "€");
+        totalPriceTextView.setText("Cena objednávky: " + String.valueOf(
+                new BigDecimal(celkovaCena).setScale(2, RoundingMode.HALF_UP)) + "€");
         super.onPostResume();
     }
 

@@ -11,24 +11,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.HlavneMenuActivity">
+        <activity
+            android:name=".activity.MainMenuActivity"
+            android:label="@string/titleActivityMainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PotvrdenieObjednavkyActivity" />
         <activity
-            android:name=".activity.JedalnyListokTabbedActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".activity.SendOrderActivity"
+            android:label="@string/titleActivitySendOrder" />
         <activity
-            android:name=".activity.VelkyListokActivity"
-            android:label="@string/title_activity_velky_listok"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.MojeObjednavkyActivity" />
-        <activity android:name=".activity.ObjednavkaActivity" />
+            android:name=".activity.FoodMenuActivity"
+            android:label="@string/titleActivityFoodMenu"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activity.MyOrdersActivity"
+            android:label="@string/titleActivityMyOrders" />
+        <activity
+            android:name=".activity.OrderDetailActivity"
+            android:label="@string/titleActivityOrderDetail" />
 
         <provider
             android:name=".localdb.IllHaveContentProvider"

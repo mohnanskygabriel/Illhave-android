@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseOpenHelper extends SQLiteOpenHelper {
 
-    public DatabaseOpenHelper(Context context) {
+    DatabaseOpenHelper(Context context) {
         super(context, "illhave", null, 1);
     }
 
@@ -15,8 +15,8 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(createTable());
 
-        insertSampleEntry(db, 1, 2.55, "2017-8-8 12:00:00");
-        insertSampleEntry(db, 2, 25.00, "9999-8-8 12:00:00");
+        /*insertSampleEntry(db, 1, 2.55, "2017-8-8 12:00:00");
+        insertSampleEntry(db, 2, 25.00, "9999-8-8 12:00:00");*/
     }
 
     private void insertSampleEntry(SQLiteDatabase db, Integer api_id, double total, String created_date) {

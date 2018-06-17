@@ -4,8 +4,6 @@ import android.content.ContentResolver;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-import java.util.Date;
-
 public interface IllHaveContract {
 
     String AUTHORITY = "sk.upjs.sk.illhave";
