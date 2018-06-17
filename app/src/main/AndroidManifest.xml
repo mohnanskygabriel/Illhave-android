@@ -28,12 +28,14 @@
             android:label="@string/title_activity_velky_listok"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.MojeObjednavkyActivity" />
-        <activity android:name=".activity.ObjednavkaActivity"></activity>
+        <activity android:name=".activity.ObjednavkaActivity" />
+
         <provider
             android:name=".localdb.IllHaveContentProvider"
             android:authorities="sk.upjs.sk.illhave"
             android:enabled="true"
-            android:exported="false"></provider>
+            android:exported="false" />
+
     </application>
 
 </manifest>
