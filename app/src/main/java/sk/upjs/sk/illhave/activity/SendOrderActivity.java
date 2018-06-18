@@ -1,12 +1,9 @@
 package sk.upjs.sk.illhave.activity;
 
-import android.Manifest;
 import android.content.AsyncQueryHandler;
 import android.content.ContentValues;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -44,9 +41,6 @@ public class SendOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_order);
-        ActivityCompat.requestPermissions(SendOrderActivity.this,
-                new String[]{Manifest.permission.INTERNET},
-                1);
         final Spinner spinner = findViewById(R.id.tablesSpinner);
         initializeRestaurantTables(spinner);
 
@@ -96,7 +90,7 @@ public class SendOrderActivity extends AppCompatActivity {
                     Toast.makeText(
                             SendOrderActivity.this,
                             "Objednávka nebola odoslaná, zadali ste zlé heslo",
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -195,11 +189,6 @@ public class SendOrderActivity extends AppCompatActivity {
                                 password(password).build()).
                 product(products).
                 build();
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     private void initializeRestaurantTables(Spinner spinner) {

@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.LinkedList;
 import java.util.concurrent.ExecutionException;
@@ -24,10 +25,6 @@ public class OrderDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
-
-        ActivityCompat.requestPermissions(OrderDetailActivity.this,
-                new String[]{Manifest.permission.INTERNET},
-                1);
 
         val extras = getIntent().getExtras();
         Order order = null;
@@ -46,6 +43,11 @@ public class OrderDetailActivity extends AppCompatActivity {
                 ListAdapter adapter = new ArrayAdapter<>(
                         this, android.R.layout.simple_list_item_1, list);
                 productsListView.setAdapter(adapter);
+            }else{
+                Toast.makeText(
+                        OrderDetailActivity.this,
+                        "Problém s pripojením na server alebo sa nenašla objednávka",
+                        Toast.LENGTH_LONG).show();
             }
         }
     }

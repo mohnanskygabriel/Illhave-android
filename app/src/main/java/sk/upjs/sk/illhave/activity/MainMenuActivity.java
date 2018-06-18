@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import sk.upjs.sk.illhave.AllProducts;
 import sk.upjs.sk.illhave.R;
 
 public class MainMenuActivity extends AppCompatActivity {
@@ -20,12 +22,21 @@ public class MainMenuActivity extends AppCompatActivity {
         db.execSQL(clearDBQuery);*/
 
         Button foodMenuButton = findViewById(R.id.food_menu_button);
+
         foodMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(
-                        MainMenuActivity.this, FoodMenuActivity.class);
-                startActivity(intent);
+                if (AllProducts.allProducts.size() > 0) {
+                    Intent intent = new Intent(
+                            MainMenuActivity.this, FoodMenuActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(
+                            MainMenuActivity.this,
+                            "Problém s pripojením na server",
+                            Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
