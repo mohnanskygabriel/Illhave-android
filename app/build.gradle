@@ -17,7 +17,10 @@ android {
         }
     }
     compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
