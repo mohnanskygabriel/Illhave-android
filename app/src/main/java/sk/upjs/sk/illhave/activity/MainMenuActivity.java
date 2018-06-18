@@ -33,7 +33,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(
                             MainMenuActivity.this,
-                            "Problém s pripojením na server",
+                            R.string.connectionProblem,
                             Toast.LENGTH_LONG).show();
                 }
 

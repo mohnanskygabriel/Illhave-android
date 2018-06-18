@@ -26,13 +26,16 @@
         <activity
             android:name=".activity.FoodMenuActivity"
             android:label="@string/titleActivityFoodMenu"
+            android:parentActivityName=".activity.MainMenuActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MyOrdersActivity"
-            android:label="@string/titleActivityMyOrders" />
+            android:label="@string/titleActivityMyOrders"
+            android:parentActivityName=".activity.MainMenuActivity" />
         <activity
             android:name=".activity.OrderDetailActivity"
-            android:label="@string/titleActivityOrderDetail" />
+            android:label="@string/titleActivityOrderDetail"
+            android:parentActivityName=".activity.MyOrdersActivity" />
 
         <provider
             android:name=".localdb.IllHaveContentProvider"

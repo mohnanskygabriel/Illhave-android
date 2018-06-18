@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">I\'ll have</string>
+    <string name="password">Heslo: </string>
+    <string name="restaurantTable">Stôl: </string>
+    <string name="sendOrder">Odoslať objednávku</string>
+    <string name="total_price_default">0</string>
+    <string name="unit">ks</string>
+    <string name="countEditTextDefault">1</string>
+    <string name="foodMenu">Jedálny lístok</string>
+    <string name="myOrders">Moje objednávky</string>
+    <string name="products">Produkty:</string>
+    <string name="titleActivityFoodMenu">Jedálny lístok</string>
+    <string name="titleActivitySendOrder">Potvrdenie objednávky</string>
+    <string name="titleActivityMainMenu">Hlavné menu</string>
+    <string name="titleActivityMyOrders">Moje objednávky</string>
+    <string name="titleActivityOrderDetail">Detaily objednávky</string>
+    <string name="product">Produkt</string>
+    <string name="unitPrice">Jednotková cena</string>
+    <string name="count">Počet</string>
+    <string name="totalPrice">Celková cena</string>
+    <string name="createdDate">Dátum vytvorenia</string>
+    <string name="restaurantTablePasswordProblemMessage">Objednávka nebola odoslaná, zadali ste zlé heslo</string>
+    <string name="orderSaved">Objednávka bola odoslaná a uložená do lokálného úložiska</string>
+    <string name="orderPrice">Cena objednávky: %1$s %2$s</string>
+    <string name="currency">€</string>
+    <string name="orderNotFound">Problém s pripojením na server alebo sa nenašla objednávka</string>
+    <string name="connectionProblem">Problém s pripojením na server</string>
+
+</resources>

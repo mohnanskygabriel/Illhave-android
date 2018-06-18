@@ -1,8 +1,6 @@
 package sk.upjs.sk.illhave.activity;
 
-import android.Manifest;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
@@ -25,9 +23,13 @@ public class OrderDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_detail);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         val extras = getIntent().getExtras();
-        Order order = null;
+        Order order;
         if (extras != null) {
             order = getOrderById(extras.getLong("orderApiId"));
             if (order != null) {
@@ -38,18 +40,19 @@ public class OrderDetailActivity extends AppCompatActivity {
                 val products = order.product();
                 val list = new LinkedList<String>();
                 for (Product product : products) {
-                    list.add(product.name() + "     " + product.price() + "€");
+                    list.add(product.name() + "     " + product.price() + getResources().getString(R.string.currency));
                 }
                 ListAdapter adapter = new ArrayAdapter<>(
                         this, android.R.layout.simple_list_item_1, list);
                 productsListView.setAdapter(adapter);
-            }else{
+            } else {
                 Toast.makeText(
                         OrderDetailActivity.this,
-                        "Problém s pripojením na server alebo sa nenašla objednávka",
+                        R.string.orderNotFound,
                         Toast.LENGTH_LONG).show();
             }
         }
+
     }
 
     private void setRestaurantTableName(String tableName) {

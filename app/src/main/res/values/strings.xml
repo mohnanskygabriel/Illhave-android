@@ -1,22 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">I\'ll have</string>
-    <string name="password">Heslo: </string>
-    <string name="restaurantTable">Stôl: </string>
-    <string name="sendOrder">Odoslať objednávku</string>
+    <string name="password">Passwords: </string>
+    <string name="restaurantTable">Table: </string>
+    <string name="sendOrder">Send order</string>
     <string name="total_price_default">0</string>
-    <string name="unit">ks</string>
+    <string name="unit">pcs</string>
     <string name="countEditTextDefault">1</string>
-    <string name="foodMenu">Jedálny lístok</string>
-    <string name="myOrders">Moje objednávky</string>
-    <string name="products">Produkty:</string>
-    <string name="titleActivityFoodMenu">Jedálny lístok</string>
-    <string name="titleActivitySendOrder">Potvrdenie objednávky</string>
-    <string name="titleActivityMainMenu">Hlavné menu</string>
-    <string name="titleActivityMyOrders">Moje objednávky</string>
-    <string name="titleActivityOrderDetail">Detaily objednávky</string>
-    <string name="product">Produkt</string>
-    <string name="unitPrice">Jednotková cena</string>
-    <string name="count">Počet</string>
-    <string name="totalPrice">Celková cena</string>
-    <string name="createdDate">Dátum vytvorenia</string>
+    <string name="foodMenu">Food menu</string>
+    <string name="myOrders">My orders</string>
+    <string name="products">Products:</string>
+    <string name="titleActivityFoodMenu">Food menu</string>
+    <string name="titleActivitySendOrder">Send order</string>
+    <string name="titleActivityMainMenu">Main menu</string>
+    <string name="titleActivityMyOrders">My orders</string>
+    <string name="titleActivityOrderDetail">Order details</string>
+    <string name="product">Product</string>
+    <string name="unitPrice">Unit price</string>
+    <string name="count">Count</string>
+    <string name="totalPrice">Total price</string>
+    <string name="createdDate">Created date</string>
+    <string name="restaurantTablePasswordProblemMessage">Order was not sent, you entered a wrong password</string>
+    <string name="orderSaved">Order was sent and saved into local storage</string>
+    <string name="orderPrice">Price of the order: %1$s %2$s</string>
+    <string name="currency">€</string>
+    <string name="orderNotFound">Server connection error or order was not found</string>
+    <string name="connectionProblem">Server connection error</string>
+
 </resources>

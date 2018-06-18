@@ -27,6 +27,10 @@ public class MyOrdersActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         final ListView ordersView = findViewById(R.id.my_orders_list_view);
         String[] from = {IllHaveContract.Order.TOTAL, IllHaveContract.Order.CREATED_DATE, IllHaveContract.Order.API_ID};
         int[] to = {R.id.row_my_order_total_text_view, R.id.row_my_order_date_text_view, R.id.row_my_order_api_id_text_view};
@@ -43,6 +47,7 @@ public class MyOrdersActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -69,4 +74,5 @@ public class MyOrdersActivity extends AppCompatActivity
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         return false;
     }
+
 }

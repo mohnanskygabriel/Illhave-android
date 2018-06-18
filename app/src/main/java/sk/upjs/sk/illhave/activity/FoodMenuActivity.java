@@ -42,7 +42,10 @@ public class FoodMenuActivity extends AppCompatActivity {
 
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         if (savedInstanceState == null) {
             selected = new int[list.size()];
         } else {
@@ -87,10 +90,10 @@ public class FoodMenuActivity extends AppCompatActivity {
         @NonNull
         @Override
         public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            ViewHolder holder = null;
+            ViewHolder holder;
             LayoutInflater inflater = getLayoutInflater();
             if (convertView == null) {
-                convertView = inflater.inflate(R.layout.row_food_menu_list_view, null, false);
+                convertView = inflater.inflate(R.layout.row_food_menu_list_view, parent, false);
                 holder = new ViewHolder(convertView);
                 convertView.setTag(holder);
             } else {
@@ -158,4 +161,6 @@ public class FoodMenuActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putSerializable(BUNDLE_KEY, selected);
     }
+
+
 }

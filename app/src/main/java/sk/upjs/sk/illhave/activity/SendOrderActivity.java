@@ -41,6 +41,7 @@ public class SendOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_order);
+
         final Spinner spinner = findViewById(R.id.tablesSpinner);
         initializeRestaurantTables(spinner);
 
@@ -64,7 +65,8 @@ public class SendOrderActivity extends AppCompatActivity {
 
         val finalTotalPrice = String.valueOf(
                 new BigDecimal(celkovaCena).setScale(2, RoundingMode.HALF_UP));
-        totalPriceTextView.setText("Cena objednávky: " + finalTotalPrice + "€");
+        totalPriceTextView.setText(
+                getString(R.string.orderPrice, finalTotalPrice, getString(R.string.currency)));
         val finalQuantitesList = (ArrayList<Integer>) quantitiesList.clone();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +91,7 @@ public class SendOrderActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(
                             SendOrderActivity.this,
-                            "Objednávka nebola odoslaná, zadali ste zlé heslo",
+                            R.string.restaurantTablePasswordProblemMessage,
                             Toast.LENGTH_LONG).show();
                 }
             }
@@ -107,7 +109,7 @@ public class SendOrderActivity extends AppCompatActivity {
             protected void onInsertComplete(int token, Object cookie, Uri uri) {
                 Toast.makeText(
                         SendOrderActivity.this,
-                        "Objednávka odoslaná a uložená do lokálného úložiska",
+                        R.string.orderSaved,
                         Toast.LENGTH_SHORT).show();
             }
         };
@@ -133,8 +135,11 @@ public class SendOrderActivity extends AppCompatActivity {
         for (int i = 0; i < productIdIntegerListFinal.size(); i++) {
             celkovaCena += (quantitiesList.get(i) * AllProducts.allProducts.get(productIdIntegerListFinal.get(i) - 1).price());
         }
-        totalPriceTextView.setText("Cena objednávky: " + String.valueOf(
-                new BigDecimal(celkovaCena).setScale(2, RoundingMode.HALF_UP)) + "€");
+        totalPriceTextView.setText(getString(
+                R.string.orderPrice,
+                String.valueOf(
+                        new BigDecimal(celkovaCena).setScale(2, RoundingMode.HALF_UP)),
+                getString(R.string.currency)));
         super.onPostResume();
     }
 
