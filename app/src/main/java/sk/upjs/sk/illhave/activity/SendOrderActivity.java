@@ -57,8 +57,10 @@ public class SendOrderActivity extends AppCompatActivity {
             quantitiesList = extras.getIntegerArrayList("quantities");
         }
 
-        val productIdIntegerListFinal = (ArrayList<Integer>) productIdIntegerList.clone();
+        assert productIdIntegerList != null;
+        val productIdIntegerListFinal = new ArrayList<Integer>(productIdIntegerList);
         Double celkovaCena = 0.0;
+        assert quantitiesList != null;
         for (int i = 0; i < productIdIntegerListFinal.size(); i++) {
             celkovaCena += (quantitiesList.get(i) * AllProducts.allProducts.get(productIdIntegerListFinal.get(i) - 1).price());
         }
@@ -67,7 +69,7 @@ public class SendOrderActivity extends AppCompatActivity {
                 new BigDecimal(celkovaCena).setScale(2, RoundingMode.HALF_UP));
         totalPriceTextView.setText(
                 getString(R.string.orderPrice, finalTotalPrice, getString(R.string.currency)));
-        val finalQuantitesList = (ArrayList<Integer>) quantitiesList.clone();
+        val finalQuantitesList = new ArrayList<Integer>(quantitiesList);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,10 +81,8 @@ public class SendOrderActivity extends AppCompatActivity {
                 if (passcheck) {
 
                     val productIdLongList = new LinkedList<Long>();
-                    if (extras != null) {
-                        for (Integer integer : productIdIntegerListFinal) {
-                            productIdLongList.add(Long.valueOf(integer));
-                        }
+                    for (Integer integer : productIdIntegerListFinal) {
+                        productIdLongList.add(Long.valueOf(integer));
                     }
                     val order = createOrder(productIdLongList, finalQuantitesList, restaurantTableId, restaurantTable, String.valueOf(password));
                     val createdOrder = sendOrder(order);
@@ -130,8 +130,10 @@ public class SendOrderActivity extends AppCompatActivity {
             productIdIntegerList = extras.getIntegerArrayList("productIds");
             quantitiesList = extras.getIntegerArrayList("quantities");
         }
-        val productIdIntegerListFinal = (ArrayList<Integer>) productIdIntegerList.clone();
+        assert productIdIntegerList != null;
+        val productIdIntegerListFinal = new ArrayList<Integer>(productIdIntegerList);
         double celkovaCena = 0.0;
+        assert quantitiesList != null;
         for (int i = 0; i < productIdIntegerListFinal.size(); i++) {
             celkovaCena += (quantitiesList.get(i) * AllProducts.allProducts.get(productIdIntegerListFinal.get(i) - 1).price());
         }
