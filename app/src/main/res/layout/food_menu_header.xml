@@ -7,34 +7,50 @@
 
     <TextView
         android:id="@+id/product_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="4"
         android:gravity="center"
         android:text="@string/product"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/unit_price_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="20dp"
+        android:layout_height="50dp"
         android:layout_weight="3"
-        android:gravity="center_vertical|center"
+        android:gravity="center"
         android:text="@string/unitPrice"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/count_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="3"
         android:gravity="center"
         android:text="@string/count"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/placeholder_text_view"
+        android:layout_width="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -42,10 +58,23 @@
     <TextView
         android:id="@+id/total_price_text_view"
         android:layout_width="20dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
+        android:layout_height="50dp"
+        android:layout_weight="3"
         android:gravity="center"
         android:text="@string/totalPrice"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/placeholder_text_view2"
+        android:layout_width="20dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         android:textSize="18sp"
         android:textStyle="bold" />

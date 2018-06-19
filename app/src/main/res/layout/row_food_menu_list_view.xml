@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/price_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
         android:layout_height="50dp"
         android:layout_weight="3"
         android:gravity="center"
@@ -24,7 +24,7 @@
 
     <EditText
         android:id="@+id/count_edit_text"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
         android:layout_height="50dp"
         android:layout_weight="3"
         android:gravity="center"
@@ -33,7 +33,7 @@
 
     <TextView
         android:id="@+id/unit_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
         android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center"
@@ -42,7 +42,7 @@
 
     <TextView
         android:id="@+id/total_price_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
         android:layout_height="50dp"
         android:layout_weight="3"
         android:gravity="center"
@@ -51,7 +51,7 @@
 
     <CheckBox
         android:id="@+id/row_food_menu_check_box"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
         android:layout_height="50dp"
         android:layout_weight="1"
         android:gravity="center" />
