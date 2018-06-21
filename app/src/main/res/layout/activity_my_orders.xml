@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".activity.MyOrdersActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_orders_activity_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
+
     <TextView
         android:id="@+id/total_price_text_view"
         android:layout_width="wrap_content"
@@ -17,8 +26,9 @@
         android:text="@string/totalPrice"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toStartOf="@+id/my_orders_guideline"
+        app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/my_orders_activity_toolbar" />
 
     <TextView
         android:id="@+id/created_date_text_view"
@@ -31,8 +41,9 @@
         android:text="@string/createdDate"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="@+id/my_orders_guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/my_orders_activity_toolbar" />
 
     <android.support.constraint.Guideline
         android:id="@+id/my_orders_guideline"
@@ -44,12 +55,12 @@
     <ListView
         android:id="@+id/my_orders_list_view"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/created_date_text_view" />
+        app:layout_constraintTop_toBottomOf="@+id/total_price_text_view" />
 
 </android.support.constraint.ConstraintLayout>

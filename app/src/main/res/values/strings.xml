@@ -26,5 +26,10 @@
     <string name="currency">€</string>
     <string name="orderNotFound">Server connection error or order was not found</string>
     <string name="connectionProblem">Server connection error</string>
+    <string name="action_delete_all">delete all</string>
+    <string name="local_storage_clear_message">Do really want to delete all orders from local storage?</string>
+    <string name="delete_all">Delete all</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 </resources>

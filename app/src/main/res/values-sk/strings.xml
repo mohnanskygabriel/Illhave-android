@@ -26,5 +26,10 @@
     <string name="currency">€</string>
     <string name="orderNotFound">Problém s pripojením na server alebo sa nenašla objednávka</string>
     <string name="connectionProblem">Problém s pripojením na server</string>
+    <string name="action_delete_all">vymazať všetko</string>
+    <string name="delete_all">Vymazať všetko</string>
+    <string name="yes">Áno</string>
+    <string name="no">Nie</string>
+    <string name="local_storage_clear_message">Určite vymazať všetky objednávky z lokálneho úložiska?</string>
 
 </resources>

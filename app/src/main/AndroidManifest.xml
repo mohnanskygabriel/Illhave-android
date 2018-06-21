@@ -31,7 +31,9 @@
         <activity
             android:name=".activity.MyOrdersActivity"
             android:label="@string/titleActivityMyOrders"
-            android:parentActivityName=".activity.MainMenuActivity" />
+            android:parentActivityName=".activity.MainMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="keyboardHidden|orientation"/>
         <activity
             android:name=".activity.OrderDetailActivity"
             android:label="@string/titleActivityOrderDetail"

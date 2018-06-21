@@ -17,9 +17,7 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-       /* SQLiteDatabase db = new DatabaseOpenHelper(this).getWritableDatabase();
-        String clearDBQuery = "DELETE FROM " + IllHaveContract.Order.TABLE_NAME;
-        db.execSQL(clearDBQuery);*/
+
 
         Button foodMenuButton = findViewById(R.id.food_menu_button);
 
